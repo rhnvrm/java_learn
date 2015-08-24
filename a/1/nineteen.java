@@ -1,13 +1,7 @@
 /*
 
-Write a program to generate multiplication tables for 1 ,2, ..., 10. Each table up to 10
-
-Modify (20) so that your output now looks like this:
-2x1=2 3x1=3 ... 5x1=5
-2x2=4 3x2=6 ... 5x2=10
-...
-...
-2x10=20 3x10=30 ... 5x10=50
+In a strong number, the sum of the factorials of digits of a number is equal to the original
+number. Write a program to check given number is strong number or not.
 
 Author: Rohan Verma (hello@rohanverma.net)
 
