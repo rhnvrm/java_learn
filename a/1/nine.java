@@ -1,8 +1,8 @@
 /*
 
-Write a program that simulates flipping a 
-coin one million times and displays the number of
-heads and tails.
+Write a program that prompts the user to 
+enter the number of seconds, displays a message at
+every second, and terminates when the time expires.
 
 Author: Rohan Verma (hello@rohanverma.net)
 
@@ -10,26 +10,36 @@ Author: Rohan Verma (hello@rohanverma.net)
 import java.util.Scanner;
 
 
-public class eight {
+public class nine {
 
 	public static void main( String [] args )
 	{
 
-		int FLIPS = 1000000;
+		int num, max = Integer.MIN_VALUE, count = 0;
 
-		int heads = 0, tails = 0, coin;
+		Scanner s = new Scanner(System.in);
+
+		do{
+
+			num = s.nextInt();
+
+			if(max == num){
+				count += 1;
+			}
+			else if(max < num){
+				count = 1;
+				max = num;
+			}
+			else{
+
+			}
 
 
 
-		for(int i = 0; i < FLIPS; i++){
-			coin = (int)((Math.random() > 0.5)?1:0);
+		}while(num != 0);
 
-			if(coin == 0) heads++;
-			else tails++;
-		}
-
-	    System.out.println("Heads: " + heads);
-	    System.out.println("Tails: " + tails);
+		System.out.println("Max Number: " + max);
+		System.out.println("     Count: " + count);
 
 	}
 }
