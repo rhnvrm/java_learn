@@ -12,7 +12,7 @@ Author: Rohan Verma (hello@rohanverma.net)
 import java.util.Scanner;
 
 
-public class eleven {
+public class twelve {
 
 	public static int hcf(int a, int b){
 
