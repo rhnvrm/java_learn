@@ -1,9 +1,10 @@
 /*
 
-Write a program that prompts the user to enter the center 
-coordinates and radii of two circles
-and determines whether the second circle is 
-inside the first or overlaps with the first.
+Write a program that prompts the user to enter 
+a decimal integer and displays its
+corresponding binary value. 
+Don’t use Java’s Integer.toBinaryString(int) 
+in this program.
 
 Author: Rohan Verma (hello@rohanverma.net)
 
