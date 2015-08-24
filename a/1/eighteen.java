@@ -37,14 +37,14 @@ public class eighteen {
 			space--;
 			for ( c = 1 ; c <= d ; c++ )
 			{
-				System.out.printf("%d", num);
+				System.out.printf("%d", num%10);
 				num++;
 			}
 			num--;
 			num--;
 			for ( c = 1 ; c < d ; c++)
 			{
-				System.out.printf("%d", num);
+				System.out.printf("%d", num%10);
 				num--;
 			}
 			System.out.printf("\n");
