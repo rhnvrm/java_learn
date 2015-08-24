@@ -10,36 +10,32 @@ Author: Rohan Verma (hello@rohanverma.net)
 import java.util.Scanner;
 
 
-public class nine {
+public class thirteen {
 
 	public static void main( String [] args )
 	{
 
-		int num, max = Integer.MIN_VALUE, count = 0;
+		int num;
+
+		int[] arr = new int[101];
 
 		Scanner s = new Scanner(System.in);
 
+		System.out.println("Enter Marks: (-1 to exit)");
 		do{
 
 			num = s.nextInt();
 
-			if(max == num){
-				count += 1;
+			if(num!=-1)arr[num] += 1;
+			
+		}while(num != -1);
+
+		System.out.println("\nMarks' frequency: ");
+		for(int i = 0; i < 101; i++){
+			if(arr[i] != 0){
+				System.out.println(i + ": " + arr[i]);
 			}
-			else if(max < num){
-				count = 1;
-				max = num;
-			}
-			else{
-
-			}
-
-
-
-		}while(num != 0);
-
-		System.out.println("Max Number: " + max);
-		System.out.println("     Count: " + count);
+		}
 
 	}
 }
