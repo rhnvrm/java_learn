@@ -22,25 +22,33 @@ public class eighteen {
 	public static void main( String [] args )
 	{
 
-		int num;
+		int n, c, d, num = 1, space;
 
 		Scanner s = new Scanner(System.in);
 
-		num = s.nextInt();
+		n = s.nextInt();
 
-		for(int i = 0; i < num; i++){
-			for(int k = i + 1; k < num; k++){
-				System.out.print(' ');
+		space = n - 1;
+		for ( d = 1 ; d <= n ; d++ )
+		{
+			num = d;
+			for ( c = 1 ; c <= space ; c++ )
+				System.out.printf(" ");
+			space--;
+			for ( c = 1 ; c <= d ; c++ )
+			{
+				System.out.printf("%d", num);
+				num++;
 			}
-			int j = 1;
-			for(j = 1 + i; j < num; j++){
-				System.out.print(j);
+			num--;
+			num--;
+			for ( c = 1 ; c < d ; c++)
+			{
+				System.out.printf("%d", num);
+				num--;
 			}
-			j--;
-			for(; j > i; j--){
-				System.out.print(j);
-			}
-			System.out.print('\n');
+			System.out.printf("\n");
 		}
+
 	}
 }
