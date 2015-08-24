@@ -1,0 +1,7 @@
+Commands used:
+
+For combining to combined.java
+cat *.java > combined.java
+
+For saving list of files in ascending order by name.
+ls *.java > list.txt
