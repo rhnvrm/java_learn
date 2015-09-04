@@ -9,6 +9,11 @@ public class Circle{
 		counter++;
 	}
 
+	public Circle(double x){
+		radius = x;
+		counter++;
+	}
+
 	public int getCounter(){
 		return counter;
 	}

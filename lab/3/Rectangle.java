@@ -10,6 +10,12 @@ public class Rectangle{
 		counter++;
 	}
 
+	public Rectangle(double x, double y){
+		l = x;
+		b = y;
+		counter++;
+	}
+
 	public int getCounter(){
 		return counter;
 	}

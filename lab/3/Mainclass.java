@@ -33,7 +33,7 @@ public class Mainclass{
 			System.out.println(" 1 : Create Objects ");
 			System.out.println(" 2 : Browse Objects ");
 			System.out.println("-1 : Exit");
-			System.out.print("?>");
+			System.out.print("?> ");
 			choice = s.nextInt();
 
 			if(choice == 1){
@@ -43,13 +43,19 @@ public class Mainclass{
 				System.out.println(" 3 : Square");
 				System.out.println(" 4 : Triangle");
 				System.out.println("-1 : Exit");
-				System.out.print("?>");
+				System.out.print("?> ");
 				choice = s.nextInt();
 				if(choice == 1){
-					circles[circles[0].getCounter()] =  new Circle();
+					System.out.print("Enter Radius: ");
+					double radius = s.nextDouble();
+					circles[circles[0].getCounter()] =  new Circle(radius);
 				}
 				else if (choice == 2){
-					rectangles[rectangles[0].getCounter()] =  new Rectangle();
+					System.out.print("Enter Length: ");
+					double length = s.nextDouble();
+					System.out.print("Enter Breadth: ");
+					double breadth = s.nextDouble();
+					rectangles[rectangles[0].getCounter()] =  new Rectangle(length,breadth);
 				}
 				else if (choice == 3){
 					squares[squares[0].getCounter()] =  new Square();
@@ -66,34 +72,76 @@ public class Mainclass{
 				System.out.println(" 3 : Square");
 				System.out.println(" 4 : Triangle");
 				System.out.println("-1 : Exit");
-				System.out.print("?>");
+				System.out.print("?> ");
 				choice = s.nextInt();
+
 				if(choice == 1){
+
 					System.out.println("Choose Method: ");
 					System.out.println(" 1 : getCount");
 					System.out.println(" 2 : getRadius");
 					System.out.println(" 3 : getArea");
 					System.out.println(" 4 : getPerimeter");
 					System.out.println("-1 : Exit");
-					System.out.print("?>");
+					System.out.print("?> ");
+
 					choice = s.nextInt();
 
 					if (choice == 1) {
 						System.out.println(circles[0].getCounter() - 1);
 					}
-					else if(choice = 2){
+					else if(choice == 2){
 						System.out.print("Select Circle: ");
 						int i = s.nextInt();
 						System.out.println(circles[i].getRadius());
 					}
-					else if(choice = 3){
-
+					else if(choice == 3){
+						System.out.print("Select Circle: ");
+						int i = s.nextInt();
+						System.out.println(circles[i].getArea());
+					}
+					else if(choice == 4){
+						System.out.print("Select Circle: ");
+						int i = s.nextInt();
+						System.out.println(circles[i].getPerimeter());
 					}
 
 					choice = 0;
 				}
 				else if (choice == 2){
-					rectangles[rectangles[0].getCounter()] =  new Rectangle();
+
+					System.out.println("Choose Method: ");
+					System.out.println(" 1 : getCount");
+					System.out.println(" 2 : getLength");
+					System.out.println(" 3 : getArea");
+					System.out.println(" 4 : getPerimeter");
+					System.out.println("-1 : Exit");
+
+
+					System.out.print("?> ");
+					choice = s.nextInt();
+					
+					if (choice == 1) {
+						System.out.println(rectangles[0].getCounter() - 1);
+					}
+					else if(choice == 2){
+						System.out.print("Select Circle: ");
+						int i = s.nextInt();
+						System.out.println(rectangles[i].getRadius());
+					}
+					else if(choice == 3){
+						System.out.print("Select Circle: ");
+						int i = s.nextInt();
+						System.out.println(circles[i].getArea());
+					}
+					else if(choice == 4){
+						System.out.print("Select Circle: ");
+						int i = s.nextInt();
+						System.out.println(circles[i].getPerimeter());
+					}
+
+					choice = 0;
+
 				}
 				else if (choice == 3){
 					squares[squares[0].getCounter()] =  new Square();
