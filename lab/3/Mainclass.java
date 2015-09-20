@@ -46,9 +46,14 @@ public class Mainclass{
 				System.out.print("?> ");
 				choice = s.nextInt();
 				if(choice == 1){
+<<<<<<< HEAD
 					System.out.print("Enter Radius: ");
 					double radius = s.nextDouble();
 					circles[circles[0].getCounter()] =  new Circle(radius);
+=======
+					circles[circles[0].getCounter()] =  new Circle();
+					
+>>>>>>> 8a6359bc798d9df8aed7d4e4d51ac94c75db30d2
 				}
 				else if (choice == 2){
 					System.out.print("Enter Length: ");
@@ -66,7 +71,7 @@ public class Mainclass{
 				choice = 0;
 			}
 			else if(choice == 2){
-				System.out.println("Choose Object: ");
+				System.out.println("Choose Object Array: ");
 				System.out.println(" 1 : Circle");
 				System.out.println(" 2 : Rectangle");
 				System.out.println(" 3 : Square");
@@ -99,13 +104,21 @@ public class Mainclass{
 						System.out.print("Select Circle: ");
 						int i = s.nextInt();
 						System.out.println(circles[i].getArea());
+<<<<<<< HEAD
+					}
+					else if(choice == 4){
+						System.out.print("Select Circle: ");
+						int i = s.nextInt();
+						System.out.println(circles[i].getPerimeter());
+=======
+>>>>>>> 8a6359bc798d9df8aed7d4e4d51ac94c75db30d2
 					}
 					else if(choice == 4){
 						System.out.print("Select Circle: ");
 						int i = s.nextInt();
 						System.out.println(circles[i].getPerimeter());
 					}
-
+					
 					choice = 0;
 				}
 				else if (choice == 2){
