@@ -5,12 +5,14 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import SNU.gr2.Point;
+
 @SuppressWarnings("serial")
-public class A extends JFrame {
+public class C extends JFrame {
 	
 	private static JLabel jlabel = new JLabel("Mouse is outside!");
 	
-	private static int circleX=50, circleY=15, circleWidth=100, centerX=circleX + circleWidth/2, centerY=circleY  + circleWidth/2;
+	private static Point a,b,c;
 	
 	public static double distance(
             double x1, double y1, double x2, double y2) {
@@ -18,21 +20,21 @@ public class A extends JFrame {
     }
 
 	
-	public boolean isInsideCircle(int px, int py) {
-        return distance(px, py, centerX, centerY) < circleWidth/2;
+	public boolean isInsideRect(int px, int py) {
+        // /return px < rectX+rectWidth && py < rectY+rectHeight && px > rectX && py > rectY;
     }
 	
-	public A()
+	public C()
 	{
 	
 	 //Set JFrame title
-	 super("Q1a");
+	 super("Q1b");
 
 	 //Set default close operation for JFrame
 	 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	 //Set JFrame size
-	 setSize(300,150);
+	 setSize(300,200);
 
 	 //Make JFrame visible 
 	 setVisible(true);
@@ -44,9 +46,11 @@ public class A extends JFrame {
 			
 			super.mouseMoved(e);
 			
-			//jlabel.setText(""+isInsideCircle(e.getX(),e.getY())+" "+e.getX()+" "+e.getY());
+			//jlabel.setText(""+isInsideRect(e.getX(),e.getY())+" "+e.getX()+" "+e.getY());
 			
-			if(isInsideCircle(e.getX(),e.getY())){
+			//repaint();
+
+			if(isInsideRect(e.getX(),e.getY())){
 				jlabel.setText("Mouse is inside!");
 			}
 			else{
@@ -67,18 +71,26 @@ public class A extends JFrame {
 	{
 	 super.paint(g);
 
-	 	g.drawOval(circleX, circleY, circleWidth, circleWidth);
-	 	
+	 	g.drawLine(a.getX(),a.getY(),b.getX(),b.getY());
+	 	g.drawLine(c.getX(),c.getY(),b.getX(),b.getY());
+	 	g.drawLine(a.getX(),a.getY(),c.getX(),c.getY());
 	 	
 	}
 
 	public static void main(String[] args) {
 
-		A frame = new A();
+		C frame = new C();
 		
-		
+		frame.a.setX(5);
+		frame.a.setY(5);
+		frame.b.setX(90);
+		frame.b.setY(90);
+		frame.c.setX(50);
+		frame.c.setY(50);
+
 		
 		frame.add(jlabel);
+		frame.repaint();
 		
 	}
 
