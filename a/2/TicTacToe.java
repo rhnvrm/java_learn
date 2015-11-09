@@ -14,12 +14,22 @@ public class TicTacToe extends JApplet {
 
   private JLabel jlblStatus = new JLabel("X's turn to play", SwingConstants.CENTER);
 
+
+  public void resetColor(){
+    for (int i = 0; i < 3; i++)
+      for (int j = 0; j < 3; j++){
+        cells[i][j].setBackground(Color.gray);
+      }
+  }
   
   public TicTacToe() {
     JPanel p = new JPanel(new GridLayout(3, 3, 0, 0));
     for (int i = 0; i < 3; i++)
-      for (int j = 0; j < 3; j++)
-        p.add(cells[i][j] = new Cell());
+      for (int j = 0; j < 3; j++){
+        cells[i][j] = new Cell();
+        cells[i][j].setBackground(Color.gray);
+        p.add(cells[i][j]);
+      }
     
     
     
@@ -31,6 +41,7 @@ public class TicTacToe extends JApplet {
   	    		for (int i = 0; i < 3; i++)
   	    	      for (int j = 0; j < 3; j++){
   	    	    	cells[i][j].setToken(' ');
+                resetColor();
   	    	    	jlblStatus.setText("X's turn to play");
   	    	    	whoseTurn = 'X';
   	    	      }
@@ -148,10 +159,12 @@ public class TicTacToe extends JApplet {
 
           if (isWon(whoseTurn)) {
             jlblStatus.setText(whoseTurn + " won! The game is over. (New Game?)");
+            //resetColor();
             whoseTurn = ' '; 
           }
           else if (isFull()) {
             jlblStatus.setText("Draw! The game is over (New Game?)");
+            //resetColor();
             whoseTurn = ' '; 
           }
           else {

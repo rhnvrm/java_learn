@@ -58,13 +58,14 @@ public class HangmanAnimation extends JFrame {
       super.paintComponent(g);
       
       g.drawArc(20, 200, 80, 40, 0, 180); // Draw the base
+      g.drawLine(20,220,100,220);
       g.drawLine(20 + 40, 200, 20 + 40, 20); // Draw the pole
       g.drawLine(20 + 40, 20, 20 + 40 + 100, 20); // Draw the hanger
 
       if (angle < rightAngle)
-        angleDelta = 1; // Swing to the left
+        angleDelta = 1; 
       else if (angle > leftAngle)
-        angleDelta = -1; // Swing to the right
+        angleDelta = -1;
             
       angle += angleDelta;
 
