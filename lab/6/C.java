@@ -5,30 +5,54 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import SNU.gr2.Point;
+import SNU.gr3.Point;
 
 @SuppressWarnings("serial")
 public class C extends JFrame {
 	
 	private static JLabel jlabel = new JLabel("Mouse is outside!");
 	
-	private static Point a,b,c;
+	private  Point a = new Point(),b= new Point(),c=new Point();
 	
-	public static double distance(
+	private static double distance(
             double x1, double y1, double x2, double y2) {
         return Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
     }
 
-	
-	public boolean isInsideRect(int px, int py) {
-        // /return px < rectX+rectWidth && py < rectY+rectHeight && px > rectX && py > rectY;
+	private int sign(int n){
+		return Math.abs(n)/n;
+	}
+
+	private int dotProduct(Point A, Point B, Point P){
+		return (A.getX()-P.getX())*(B.getY()-P.getY())-(B.getX()-P.getX())*(A.getY()-P.getY());
+	}
+
+	public boolean isInside(int x, int y) {
+
+		Point p = new Point(x,y);
+
+		int ab = dotProduct(a,b,p);
+		int bc = dotProduct(b,c,p);
+		int ca = dotProduct(c,a,p);
+		return sign(ab)==sign(bc) && sign(bc)==sign(ca);
+
+        
     }
 	
 	public C()
 	{
+
+		super("Q1c");
+
+		a.setX(0);
+		a.setY(75);
+		b.setX(90);
+		b.setY(90);
+		c.setX(50);
+		c.setY(0);
 	
 	 //Set JFrame title
-	 super("Q1b");
+	 
 
 	 //Set default close operation for JFrame
 	 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,11 +70,11 @@ public class C extends JFrame {
 			
 			super.mouseMoved(e);
 			
-			//jlabel.setText(""+isInsideRect(e.getX(),e.getY())+" "+e.getX()+" "+e.getY());
+			//jlabel.setText(""+isInside(e.getX(),e.getY())+" "+e.getX()+" "+e.getY());
 			
 			//repaint();
 
-			if(isInsideRect(e.getX(),e.getY())){
+			if(isInside(e.getX(),e.getY())){
 				jlabel.setText("Mouse is inside!");
 			}
 			else{
@@ -72,22 +96,14 @@ public class C extends JFrame {
 	 super.paint(g);
 
 	 	g.drawLine(a.getX(),a.getY(),b.getX(),b.getY());
-	 	g.drawLine(c.getX(),c.getY(),b.getX(),b.getY());
-	 	g.drawLine(a.getX(),a.getY(),c.getX(),c.getY());
+	 	g.drawLine(b.getX(),b.getY(),c.getX(),c.getY());
+	 	g.drawLine(c.getX(),c.getY(),a.getX(),a.getY());
 	 	
 	}
 
 	public static void main(String[] args) {
 
 		C frame = new C();
-		
-		frame.a.setX(5);
-		frame.a.setY(5);
-		frame.b.setX(90);
-		frame.b.setY(90);
-		frame.c.setX(50);
-		frame.c.setY(50);
-
 		
 		frame.add(jlabel);
 		frame.repaint();
