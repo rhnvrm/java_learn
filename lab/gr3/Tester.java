@@ -17,7 +17,7 @@ public class Tester {
 
 			if(l.isEmpty()){
 				System.out.println("New Object. (0- Exit, 1- Rectangle, 2- Octagon)");
-				choice = s.nextDouble();
+				choice = s.nextInt();
 
 				if(choice == 0) exit = true;
 				else if(choice == 1){
@@ -54,13 +54,13 @@ public class Tester {
 			}
 			else{
 				System.out.println("What to do? (0- Exit, 1- Add New, 2- Compare Two, 3- Max)");
-				choice = s.nextDouble();
+				choice = s.nextInt();
 
 				if(choice == 0) exit = true;
 
 				else if(choice == 1){
 					System.out.println("New Object. (0- Exit, 1- Rectangle, 2- Octagon)");
-					choice = s.nextDouble();
+					choice = s.nextInt();
 
 					if(choice == 0) exit = true;
 					else if(choice == 1){
@@ -95,8 +95,8 @@ public class Tester {
 				else if(choice == 2){
 					int p1, p2;
 
-					p1 = s.nextDouble();
-					p2 = s.nextDouble();
+					p1 = s.nextInt();
+					p2 = s.nextInt();
 
 					if(p1 > l.size() || p2 > l.size())
 						{//throw new Exception("Index out of Bounds");}

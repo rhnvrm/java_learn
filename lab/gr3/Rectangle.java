@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Rectangle extends GeometricObject implements Comparable<GeometricObject>{
 
-	private Point a, b, c, d;
+	private Point a = new Point(), b = new Point(), c = new Point(), d = new Point();
 	private double length, breadth;
 	private Point centre;
 
