@@ -3,9 +3,9 @@ package Lab3;
 import java.util.*;
 
 public class Student{
-	Name studentName;
-	Name fathersName;
-	Name mothersName;
+	Name studentName = new Name("");
+	Name fathersName = new Name("");
+	Name mothersName = new Name("");
 
 	public Student(String s, String f, String m){
 		studentName.setName(s);
