@@ -1153,4 +1153,609 @@ body .markdown-body
 
     }
 }</pre></div>
+
+<h2>
+<a id="user-content-lab-2" class="anchor" href="#lab-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lab 2</h2>
+
+<p>Create a package SNU.geometryUtil. Define Classes For various 2-d shapes like Circle, Triangle, Square, Rectangle. Create variables, required constructors, methods for calculating areas, perimeters, for each type of shape. Create Mainclass having “ public static void main()” method in another package. Create menu
+driven program asking user to create a new object of any of the shape, show him the count of each object created, asking him to show any property of any of the object, calculate area or perimeter of any object.</p>
+
+<h3>
+<a id="user-content-compiling" class="anchor" href="#compiling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Compiling</h3>
+
+<p><code>javac *.java -d .</code></p>
+
+<h3>
+<a id="user-content-testing" class="anchor" href="#testing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Testing</h3>
+
+<p><code>java Test.Mainclass</code></p>
+
+<h1>
+<a id="user-content-todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO</h1>
+
+<h2>
+<a id="user-content-lab-3" class="anchor" href="#lab-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lab 3</h2>
+
+<p>Define two classes.</p>
+
+<ol>
+<li>
+<strong>Name</strong>. Having at least three components the First name, Middle Name and the Last Name. Add appropriate constructors. </li>
+</ol>
+
+<p>Add methods to check sameNames, e.g. name1= Saurabh Kulshreshtha, ame2=Saurabh Kulshreshtha/ saurabh kulshreshtha.... sameInitials, e.g. name1=Ram Vashishtha, name2=Ravi Verma similarNames (When some of the first, middle or last names have been exchanged.),e.g. (Ravi Verma and Verma Ravi) or (Venkat Sai Velluri and Velluri Sai Venkat and Sai Velluri Venkat) etc. maybeSameNames (when some names contains initials in place of First, Middle and/or Last names and they are same as initials of other complete names) e.g. L. R. Ramesh, Luxmi Rama Ramesh, </p>
+
+<ol>
+<li><p><strong>Student</strong>. Has three names studentName, FathersName, MothersName. Constructors, Accessors/Mutators.</p></li>
+<li><p><strong>Main Program</strong>. Array of Students. Answer.... How many have same names, same fathers name etc..</p></li>
+</ol>
+
+<h2>
+<a id="user-content-lab-6" class="anchor" href="#lab-6" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lab 6</h2>
+
+<h3>
+<a id="user-content-question-1" class="anchor" href="#question-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question 1</h3>
+
+<p>Write a program that draws a fixed circle, rectangle and triangle. Whenever a mouse is moved, display the message indicating whether the mouse point is inside the figure, as shown in figures below.</p>
+
+<h4>
+<a id="user-content-ajava-circle" class="anchor" href="#ajava-circle" aria-hidden="true"><span class="octicon octicon-link"></span></a>A.java (Circle)</h4>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">package</span> <span class="pl-smi">q1</span>;
+
+<span class="pl-k">import</span> <span class="pl-smi">javax.swing.*</span>;
+<span class="pl-k">import</span> <span class="pl-smi">java.awt.*</span>;
+<span class="pl-k">import</span> <span class="pl-smi">java.awt.event.MouseAdapter</span>;
+<span class="pl-k">import</span> <span class="pl-smi">java.awt.event.MouseEvent</span>;
+
+@SuppressWarnings(<span class="pl-s"><span class="pl-pds">"</span>serial<span class="pl-pds">"</span></span>)
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">A</span> <span class="pl-k">extends</span> <span class="pl-e">JFrame</span> {
+
+    <span class="pl-k">private</span> <span class="pl-k">static</span> <span class="pl-smi">JLabel</span> jlabel <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">JLabel</span>(<span class="pl-s"><span class="pl-pds">"</span>Mouse is outside!<span class="pl-pds">"</span></span>);
+
+    <span class="pl-k">private</span> <span class="pl-k">static</span> <span class="pl-k">int</span> circleX<span class="pl-k">=</span><span class="pl-c1">50</span>, circleY<span class="pl-k">=</span><span class="pl-c1">15</span>, circleWidth<span class="pl-k">=</span><span class="pl-c1">100</span>, centerX<span class="pl-k">=</span>circleX <span class="pl-k">+</span> circleWidth<span class="pl-k">/</span><span class="pl-c1">2</span>, centerY<span class="pl-k">=</span>circleY  <span class="pl-k">+</span> circleWidth<span class="pl-k">/</span><span class="pl-c1">2</span>;
+
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">double</span> <span class="pl-en">distance</span>(
+            <span class="pl-k">double</span> <span class="pl-v">x1</span>, <span class="pl-k">double</span> <span class="pl-v">y1</span>, <span class="pl-k">double</span> <span class="pl-v">x2</span>, <span class="pl-k">double</span> <span class="pl-v">y2</span>) {
+        <span class="pl-k">return</span> <span class="pl-smi">Math</span><span class="pl-k">.</span>sqrt((x2 <span class="pl-k">-</span> x1) <span class="pl-k">*</span> (x2 <span class="pl-k">-</span> x1) <span class="pl-k">+</span> (y2 <span class="pl-k">-</span> y1) <span class="pl-k">*</span> (y2 <span class="pl-k">-</span> y1));
+    }
+
+
+    <span class="pl-k">public</span> <span class="pl-k">boolean</span> <span class="pl-en">isInsideCircle</span>(<span class="pl-k">int</span> <span class="pl-v">px</span>, <span class="pl-k">int</span> <span class="pl-v">py</span>) {
+        <span class="pl-k">return</span> distance(px, py, centerX, centerY) <span class="pl-k">&lt;</span> circleWidth<span class="pl-k">/</span><span class="pl-c1">2</span>;
+    }
+
+    <span class="pl-k">public</span> <span class="pl-en">A</span>()
+    {
+
+     <span class="pl-c">//Set JFrame title</span>
+     <span class="pl-v">super</span>(<span class="pl-s"><span class="pl-pds">"</span>Q1a<span class="pl-pds">"</span></span>);
+
+     <span class="pl-c">//Set default close operation for JFrame</span>
+     setDefaultCloseOperation(<span class="pl-smi">JFrame</span><span class="pl-c1"><span class="pl-k">.</span>EXIT_ON_CLOSE</span>);
+
+     <span class="pl-c">//Set JFrame size</span>
+     setSize(<span class="pl-c1">300</span>,<span class="pl-c1">150</span>);
+
+     <span class="pl-c">//Make JFrame visible </span>
+     setVisible(<span class="pl-c1">true</span>);
+
+     <span class="pl-v">this</span><span class="pl-k">.</span>addMouseMotionListener(<span class="pl-k">new</span> <span class="pl-smi">MouseAdapter</span>() {
+
+        <span class="pl-k">@Override</span>
+        <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">mouseMoved</span>(<span class="pl-smi">MouseEvent</span> <span class="pl-v">e</span>) {
+
+            <span class="pl-v">super</span><span class="pl-k">.</span>mouseMoved(e);
+
+            <span class="pl-c">//jlabel.setText(""+isInsideCircle(e.getX(),e.getY())+" "+e.getX()+" "+e.getY());</span>
+
+            <span class="pl-k">if</span>(isInsideCircle(e<span class="pl-k">.</span>getX(),e<span class="pl-k">.</span>getY())){
+                jlabel<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">"</span>Mouse is inside!<span class="pl-pds">"</span></span>);
+            }
+            <span class="pl-k">else</span>{
+                jlabel<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">"</span>Mouse is outside!<span class="pl-pds">"</span></span>);
+            }
+
+            repaint();
+        }
+
+
+
+    });
+    }
+
+
+
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">paint</span>(<span class="pl-smi">Graphics</span> <span class="pl-v">g</span>)
+    {
+     <span class="pl-v">super</span><span class="pl-k">.</span>paint(g);
+
+        g<span class="pl-k">.</span>drawOval(circleX, circleY, circleWidth, circleWidth);
+
+
+    }
+
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+
+        <span class="pl-smi">A</span> frame <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">A</span>();
+
+
+
+        frame<span class="pl-k">.</span>add(jlabel);
+
+    }
+
+}</pre></div>
+
+<h4>
+<a id="user-content-bjava-rectange" class="anchor" href="#bjava-rectange" aria-hidden="true"><span class="octicon octicon-link"></span></a>B.java (Rectange)</h4>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">package</span> <span class="pl-smi">q1</span>;
+
+<span class="pl-k">import</span> <span class="pl-smi">javax.swing.*</span>;
+<span class="pl-k">import</span> <span class="pl-smi">java.awt.*</span>;
+<span class="pl-k">import</span> <span class="pl-smi">java.awt.event.MouseAdapter</span>;
+<span class="pl-k">import</span> <span class="pl-smi">java.awt.event.MouseEvent</span>;
+
+@SuppressWarnings(<span class="pl-s"><span class="pl-pds">"</span>serial<span class="pl-pds">"</span></span>)
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">B</span> <span class="pl-k">extends</span> <span class="pl-e">JFrame</span> {
+
+    <span class="pl-k">private</span> <span class="pl-k">static</span> <span class="pl-smi">JLabel</span> jlabel <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">JLabel</span>(<span class="pl-s"><span class="pl-pds">"</span>Mouse is outside!<span class="pl-pds">"</span></span>);
+
+    <span class="pl-k">private</span> <span class="pl-k">static</span> <span class="pl-k">int</span> rectX<span class="pl-k">=</span><span class="pl-c1">50</span>, rectY<span class="pl-k">=</span><span class="pl-c1">15</span>, rectWidth<span class="pl-k">=</span><span class="pl-c1">200</span>, rectHeight<span class="pl-k">=</span><span class="pl-c1">100</span>;
+
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">double</span> <span class="pl-en">distance</span>(
+            <span class="pl-k">double</span> <span class="pl-v">x1</span>, <span class="pl-k">double</span> <span class="pl-v">y1</span>, <span class="pl-k">double</span> <span class="pl-v">x2</span>, <span class="pl-k">double</span> <span class="pl-v">y2</span>) {
+        <span class="pl-k">return</span> <span class="pl-smi">Math</span><span class="pl-k">.</span>sqrt((x2 <span class="pl-k">-</span> x1) <span class="pl-k">*</span> (x2 <span class="pl-k">-</span> x1) <span class="pl-k">+</span> (y2 <span class="pl-k">-</span> y1) <span class="pl-k">*</span> (y2 <span class="pl-k">-</span> y1));
+    }
+
+
+    <span class="pl-k">public</span> <span class="pl-k">boolean</span> <span class="pl-en">isInsideRect</span>(<span class="pl-k">int</span> <span class="pl-v">px</span>, <span class="pl-k">int</span> <span class="pl-v">py</span>) {
+        <span class="pl-k">return</span> px <span class="pl-k">&lt;</span> rectX<span class="pl-k">+</span>rectWidth <span class="pl-k">&amp;&amp;</span> py <span class="pl-k">&lt;</span> rectY<span class="pl-k">+</span>rectHeight <span class="pl-k">&amp;&amp;</span> px <span class="pl-k">&gt;</span> rectX <span class="pl-k">&amp;&amp;</span> py <span class="pl-k">&gt;</span> rectY;
+    }
+
+    <span class="pl-k">public</span> <span class="pl-en">B</span>()
+    {
+
+     <span class="pl-c">//Set JFrame title</span>
+     <span class="pl-v">super</span>(<span class="pl-s"><span class="pl-pds">"</span>Q1b<span class="pl-pds">"</span></span>);
+
+     <span class="pl-c">//Set default close operation for JFrame</span>
+     setDefaultCloseOperation(<span class="pl-smi">JFrame</span><span class="pl-c1"><span class="pl-k">.</span>EXIT_ON_CLOSE</span>);
+
+     <span class="pl-c">//Set JFrame size</span>
+     setSize(<span class="pl-c1">300</span>,<span class="pl-c1">200</span>);
+
+     <span class="pl-c">//Make JFrame visible </span>
+     setVisible(<span class="pl-c1">true</span>);
+
+     <span class="pl-v">this</span><span class="pl-k">.</span>addMouseMotionListener(<span class="pl-k">new</span> <span class="pl-smi">MouseAdapter</span>() {
+
+        <span class="pl-k">@Override</span>
+        <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">mouseMoved</span>(<span class="pl-smi">MouseEvent</span> <span class="pl-v">e</span>) {
+
+            <span class="pl-v">super</span><span class="pl-k">.</span>mouseMoved(e);
+
+            <span class="pl-c">//jlabel.setText(""+isInsideRect(e.getX(),e.getY())+" "+e.getX()+" "+e.getY());</span>
+
+            <span class="pl-k">if</span>(isInsideRect(e<span class="pl-k">.</span>getX(),e<span class="pl-k">.</span>getY())){
+                jlabel<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">"</span>Mouse is inside!<span class="pl-pds">"</span></span>);
+            }
+            <span class="pl-k">else</span>{
+                jlabel<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">"</span>Mouse is outside!<span class="pl-pds">"</span></span>);
+            }
+
+            repaint();
+        }
+
+
+
+    });
+    }
+
+
+
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">paint</span>(<span class="pl-smi">Graphics</span> <span class="pl-v">g</span>)
+    {
+     <span class="pl-v">super</span><span class="pl-k">.</span>paint(g);
+
+        g<span class="pl-k">.</span>drawRect(rectX, rectY, rectWidth, rectHeight);
+
+
+    }
+
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+
+        <span class="pl-smi">B</span> frame <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">B</span>();
+
+
+
+        frame<span class="pl-k">.</span>add(jlabel);
+
+    }
+
+}</pre></div>
+
+<h4>
+<a id="user-content-cjava-triangle" class="anchor" href="#cjava-triangle" aria-hidden="true"><span class="octicon octicon-link"></span></a>C.java (Triangle)</h4>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">package</span> <span class="pl-smi">q1</span>;
+
+<span class="pl-k">import</span> <span class="pl-smi">javax.swing.*</span>;
+<span class="pl-k">import</span> <span class="pl-smi">java.awt.*</span>;
+<span class="pl-k">import</span> <span class="pl-smi">java.awt.event.MouseAdapter</span>;
+<span class="pl-k">import</span> <span class="pl-smi">java.awt.event.MouseEvent</span>;
+
+<span class="pl-k">import</span> <span class="pl-smi">SNU.gr3.Point</span>;
+
+@SuppressWarnings(<span class="pl-s"><span class="pl-pds">"</span>serial<span class="pl-pds">"</span></span>)
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">C</span> <span class="pl-k">extends</span> <span class="pl-e">JFrame</span> {
+
+    <span class="pl-k">private</span> <span class="pl-k">static</span> <span class="pl-smi">JLabel</span> jlabel <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">JLabel</span>(<span class="pl-s"><span class="pl-pds">"</span>Mouse is outside!<span class="pl-pds">"</span></span>);
+
+    <span class="pl-k">private</span>  <span class="pl-smi">Point</span> a <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Point</span>(),b<span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Point</span>(),c<span class="pl-k">=</span><span class="pl-k">new</span> <span class="pl-smi">Point</span>();
+
+    <span class="pl-k">private</span> <span class="pl-k">static</span> <span class="pl-k">double</span> <span class="pl-en">distance</span>(
+            <span class="pl-k">double</span> <span class="pl-v">x1</span>, <span class="pl-k">double</span> <span class="pl-v">y1</span>, <span class="pl-k">double</span> <span class="pl-v">x2</span>, <span class="pl-k">double</span> <span class="pl-v">y2</span>) {
+        <span class="pl-k">return</span> <span class="pl-smi">Math</span><span class="pl-k">.</span>sqrt((x2 <span class="pl-k">-</span> x1) <span class="pl-k">*</span> (x2 <span class="pl-k">-</span> x1) <span class="pl-k">+</span> (y2 <span class="pl-k">-</span> y1) <span class="pl-k">*</span> (y2 <span class="pl-k">-</span> y1));
+    }
+
+    <span class="pl-k">private</span> <span class="pl-k">int</span> <span class="pl-en">sign</span>(<span class="pl-k">int</span> <span class="pl-v">n</span>){
+        <span class="pl-k">return</span> <span class="pl-smi">Math</span><span class="pl-k">.</span>abs(n)<span class="pl-k">/</span>n;
+    }
+
+    <span class="pl-k">private</span> <span class="pl-k">int</span> <span class="pl-en">dotProduct</span>(<span class="pl-smi">Point</span> <span class="pl-smi">A</span>, <span class="pl-smi">Point</span> <span class="pl-smi">B</span>, <span class="pl-smi">Point</span> <span class="pl-smi">P</span>){
+        <span class="pl-k">return</span> (<span class="pl-smi">A</span><span class="pl-k">.</span>getX()<span class="pl-k">-</span><span class="pl-smi">P</span><span class="pl-k">.</span>getX())<span class="pl-k">*</span>(<span class="pl-smi">B</span><span class="pl-k">.</span>getY()<span class="pl-k">-</span><span class="pl-smi">P</span><span class="pl-k">.</span>getY())<span class="pl-k">-</span>(<span class="pl-smi">B</span><span class="pl-k">.</span>getX()<span class="pl-k">-</span><span class="pl-smi">P</span><span class="pl-k">.</span>getX())<span class="pl-k">*</span>(<span class="pl-smi">A</span><span class="pl-k">.</span>getY()<span class="pl-k">-</span><span class="pl-smi">P</span><span class="pl-k">.</span>getY());
+    }
+
+    <span class="pl-k">public</span> <span class="pl-k">boolean</span> <span class="pl-en">isInside</span>(<span class="pl-k">int</span> <span class="pl-v">x</span>, <span class="pl-k">int</span> <span class="pl-v">y</span>) {
+
+        <span class="pl-smi">Point</span> p <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Point</span>(x,y);
+
+        <span class="pl-k">int</span> ab <span class="pl-k">=</span> dotProduct(a,b,p);
+        <span class="pl-k">int</span> bc <span class="pl-k">=</span> dotProduct(b,c,p);
+        <span class="pl-k">int</span> ca <span class="pl-k">=</span> dotProduct(c,a,p);
+        <span class="pl-k">return</span> sign(ab)<span class="pl-k">==</span>sign(bc) <span class="pl-k">&amp;&amp;</span> sign(bc)<span class="pl-k">==</span>sign(ca);
+
+
+    }
+
+    <span class="pl-k">public</span> <span class="pl-en">C</span>()
+    {
+
+        <span class="pl-v">super</span>(<span class="pl-s"><span class="pl-pds">"</span>Q1c<span class="pl-pds">"</span></span>);
+
+        a<span class="pl-k">.</span>setX(<span class="pl-c1">0</span>);
+        a<span class="pl-k">.</span>setY(<span class="pl-c1">75</span>);
+        b<span class="pl-k">.</span>setX(<span class="pl-c1">90</span>);
+        b<span class="pl-k">.</span>setY(<span class="pl-c1">90</span>);
+        c<span class="pl-k">.</span>setX(<span class="pl-c1">50</span>);
+        c<span class="pl-k">.</span>setY(<span class="pl-c1">0</span>);
+
+     <span class="pl-c">//Set JFrame title</span>
+
+
+     <span class="pl-c">//Set default close operation for JFrame</span>
+     setDefaultCloseOperation(<span class="pl-smi">JFrame</span><span class="pl-c1"><span class="pl-k">.</span>EXIT_ON_CLOSE</span>);
+
+     <span class="pl-c">//Set JFrame size</span>
+     setSize(<span class="pl-c1">300</span>,<span class="pl-c1">200</span>);
+
+     <span class="pl-c">//Make JFrame visible </span>
+     setVisible(<span class="pl-c1">true</span>);
+
+     <span class="pl-v">this</span><span class="pl-k">.</span>addMouseMotionListener(<span class="pl-k">new</span> <span class="pl-smi">MouseAdapter</span>() {
+
+        <span class="pl-k">@Override</span>
+        <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">mouseMoved</span>(<span class="pl-smi">MouseEvent</span> <span class="pl-v">e</span>) {
+
+            <span class="pl-v">super</span><span class="pl-k">.</span>mouseMoved(e);
+
+            <span class="pl-c">//jlabel.setText(""+isInside(e.getX(),e.getY())+" "+e.getX()+" "+e.getY());</span>
+
+            <span class="pl-c">//repaint();</span>
+
+            <span class="pl-k">if</span>(isInside(e<span class="pl-k">.</span>getX(),e<span class="pl-k">.</span>getY())){
+                jlabel<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">"</span>Mouse is inside!<span class="pl-pds">"</span></span>);
+            }
+            <span class="pl-k">else</span>{
+                jlabel<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">"</span>Mouse is outside!<span class="pl-pds">"</span></span>);
+            }
+
+            repaint();
+        }
+
+
+
+    });
+    }
+
+
+
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">paint</span>(<span class="pl-smi">Graphics</span> <span class="pl-v">g</span>)
+    {
+     <span class="pl-v">super</span><span class="pl-k">.</span>paint(g);
+
+        g<span class="pl-k">.</span>drawLine(a<span class="pl-k">.</span>getX(),a<span class="pl-k">.</span>getY(),b<span class="pl-k">.</span>getX(),b<span class="pl-k">.</span>getY());
+        g<span class="pl-k">.</span>drawLine(b<span class="pl-k">.</span>getX(),b<span class="pl-k">.</span>getY(),c<span class="pl-k">.</span>getX(),c<span class="pl-k">.</span>getY());
+        g<span class="pl-k">.</span>drawLine(c<span class="pl-k">.</span>getX(),c<span class="pl-k">.</span>getY(),a<span class="pl-k">.</span>getX(),a<span class="pl-k">.</span>getY());
+
+    }
+
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+
+        <span class="pl-smi">C</span> frame <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">C</span>();
+
+        frame<span class="pl-k">.</span>add(jlabel);
+        frame<span class="pl-k">.</span>repaint();
+
+    }
+
+}</pre></div>
+
+<h3>
+<a id="user-content-question-2" class="anchor" href="#question-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question 2</h3>
+
+<p>Write a program that displays a circle. You can point the mouse inside the circle and drag (i.e.,move with mouse pressed) the circle wherever the mouse goes, as shown in Figure below.</p>
+
+<h4>
+<a id="user-content-draggablecirclejava" class="anchor" href="#draggablecirclejava" aria-hidden="true"><span class="octicon octicon-link"></span></a>DraggableCircle.java</h4>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">package</span> <span class="pl-smi">q2</span>;
+
+<span class="pl-k">import</span> <span class="pl-smi">java.awt.*</span>;
+<span class="pl-k">import</span> <span class="pl-smi">java.awt.event.*</span>;
+
+<span class="pl-k">import</span> <span class="pl-smi">javax.swing.*</span>;
+
+@SuppressWarnings(<span class="pl-s"><span class="pl-pds">"</span>serial<span class="pl-pds">"</span></span>)
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">DraggableCircle</span> <span class="pl-k">extends</span> <span class="pl-e">JFrame</span>{
+
+    <span class="pl-smi">CirclePanel</span> canvas <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">CirclePanel</span>();
+
+    <span class="pl-k">public</span> <span class="pl-en">DraggableCircle</span>() {
+        <span class="pl-c">// TODO Auto-generated constructor stub</span>
+
+        <span class="pl-v">this</span><span class="pl-k">.</span>add(canvas);
+
+
+    }
+
+    <span class="pl-k">class</span> <span class="pl-en">CirclePanel</span> <span class="pl-k">extends</span> <span class="pl-e">JPanel</span>{
+        <span class="pl-k">int</span> x<span class="pl-k">=</span> <span class="pl-c1">100</span>, y <span class="pl-k">=</span> <span class="pl-c1">100</span>, diameter <span class="pl-k">=</span> <span class="pl-c1">50</span>;
+
+        <span class="pl-k">public</span> <span class="pl-k">boolean</span> <span class="pl-en">isInsideCircle</span>(<span class="pl-k">int</span> <span class="pl-v">px</span>, <span class="pl-k">int</span> <span class="pl-v">py</span>) {
+            <span class="pl-k">return</span> distance(px, py, x<span class="pl-k">-</span>diameter<span class="pl-k">/</span><span class="pl-c1">2</span>, y<span class="pl-k">-</span>diameter<span class="pl-k">/</span><span class="pl-c1">2</span>) <span class="pl-k">&lt;</span> diameter;
+        }
+
+        <span class="pl-k">public</span> <span class="pl-k">double</span> <span class="pl-en">distance</span>(
+                <span class="pl-k">double</span> <span class="pl-v">x1</span>, <span class="pl-k">double</span> <span class="pl-v">y1</span>, <span class="pl-k">double</span> <span class="pl-v">x2</span>, <span class="pl-k">double</span> <span class="pl-v">y2</span>) {
+            <span class="pl-k">return</span> <span class="pl-smi">Math</span><span class="pl-k">.</span>sqrt((x2 <span class="pl-k">-</span> x1) <span class="pl-k">*</span> (x2 <span class="pl-k">-</span> x1) <span class="pl-k">+</span> (y2 <span class="pl-k">-</span> y1) <span class="pl-k">*</span> (y2 <span class="pl-k">-</span> y1));
+        }
+
+        <span class="pl-k">public</span> <span class="pl-en">CirclePanel</span>() {
+            <span class="pl-c">// TODO Auto-generated constructor stub</span>
+            <span class="pl-v">this</span><span class="pl-k">.</span>addMouseMotionListener(<span class="pl-k">new</span> <span class="pl-smi">MouseAdapter</span>() {
+
+                <span class="pl-c">/*@Override</span>
+<span class="pl-c">                public void mouseReleased(MouseEvent e) {</span>
+<span class="pl-c">                    // TODO Auto-generated method stub</span>
+<span class="pl-c">                    x = e.getX();</span>
+<span class="pl-c">                    y = e.getY();</span>
+<span class="pl-c">                    repaint();</span>
+<span class="pl-c">                }*/</span>
+                <span class="pl-c">/*</span>
+<span class="pl-c">                @Override</span>
+<span class="pl-c">                public void mousePressed(MouseEvent e) {</span>
+<span class="pl-c">                    // TODO Auto-generated method stub</span>
+<span class="pl-c"></span>
+<span class="pl-c"></span>
+<span class="pl-c">                }*/</span>
+                <span class="pl-k">@Override</span>
+                <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">mouseClicked</span>(<span class="pl-smi">MouseEvent</span> <span class="pl-v">e</span>) {
+                    <span class="pl-c">// TODO Auto-generated method stub</span>
+                    <span class="pl-v">super</span><span class="pl-k">.</span>mouseClicked(e);
+                    <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span><span class="pl-k">+</span>isInsideCircle(e<span class="pl-k">.</span>getX(),e<span class="pl-k">.</span>getY()));
+                }
+                <span class="pl-k">@Override</span>
+                <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">mouseDragged</span>(<span class="pl-smi">MouseEvent</span> <span class="pl-v">e</span>) {
+                    <span class="pl-c">// TODO Auto-generated method stub</span>
+                    <span class="pl-v">super</span><span class="pl-k">.</span>mouseDragged(e);
+
+                    <span class="pl-k">if</span>(isInsideCircle(e<span class="pl-k">.</span>getX(),e<span class="pl-k">.</span>getY()))
+                    {
+                        x <span class="pl-k">=</span> e<span class="pl-k">.</span>getX();
+                        y <span class="pl-k">=</span> e<span class="pl-k">.</span>getY();
+                        repaint();
+                    }
+                }
+
+            });
+        }
+
+        <span class="pl-k">@Override</span>
+        <span class="pl-k">protected</span> <span class="pl-k">void</span> <span class="pl-en">paintComponent</span>(<span class="pl-smi">Graphics</span> <span class="pl-v">g</span>) {
+            <span class="pl-c">// TODO Auto-generated method stub</span>
+            <span class="pl-v">super</span><span class="pl-k">.</span>paintComponent(g);
+
+            g<span class="pl-k">.</span>drawOval(x<span class="pl-k">-</span>diameter<span class="pl-k">/</span><span class="pl-c1">2</span>, y<span class="pl-k">-</span>diameter<span class="pl-k">/</span><span class="pl-c1">2</span>, diameter, diameter);
+        }
+    }
+
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+        <span class="pl-c">// TODO Auto-generated method stub</span>
+        <span class="pl-smi">DraggableCircle</span> frame <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">DraggableCircle</span>();
+        frame<span class="pl-k">.</span>setTitle(<span class="pl-s"><span class="pl-pds">"</span>DraggableCircle Demo<span class="pl-pds">"</span></span>);
+        frame<span class="pl-k">.</span>setSize(<span class="pl-c1">500</span>, <span class="pl-c1">500</span>);
+        frame<span class="pl-k">.</span>setVisible(<span class="pl-c1">true</span>);
+
+    }
+
+}</pre></div>
+
+<h3>
+<a id="user-content-question-3" class="anchor" href="#question-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question 3</h3>
+
+<p>Write a program that displays head ( H ) or tail ( T ) for each of nine coins, as shown in Figure below. When a cell is clicked, the coin is flipped. A cell is a JLable . Write a custom cell class that extends JLable with the mouse listener for handling the clicks. When the program starts, all cells initially display H .</p>
+
+<h4>
+<a id="user-content-headstailsjava" class="anchor" href="#headstailsjava" aria-hidden="true"><span class="octicon octicon-link"></span></a>HeadsTails.java</h4>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">package</span> <span class="pl-smi">q3</span>;
+
+<span class="pl-k">import</span> <span class="pl-smi">java.awt.BorderLayout</span>;
+<span class="pl-k">import</span> <span class="pl-smi">java.awt.Color</span>;
+<span class="pl-k">import</span> <span class="pl-smi">java.awt.Font</span>;
+<span class="pl-k">import</span> <span class="pl-smi">java.awt.GridLayout</span>;
+<span class="pl-k">import</span> <span class="pl-smi">java.awt.event.MouseAdapter</span>;
+<span class="pl-k">import</span> <span class="pl-smi">java.awt.event.MouseEvent</span>;
+
+<span class="pl-k">import</span> <span class="pl-smi">javax.swing.JFrame</span>;
+<span class="pl-k">import</span> <span class="pl-smi">javax.swing.JLabel</span>;
+<span class="pl-k">import</span> <span class="pl-smi">javax.swing.JPanel</span>;
+<span class="pl-k">import</span> <span class="pl-smi">javax.swing.SwingConstants</span>;
+<span class="pl-k">import</span> <span class="pl-smi">javax.swing.border.LineBorder</span>;
+
+@SuppressWarnings(<span class="pl-s"><span class="pl-pds">"</span>serial<span class="pl-pds">"</span></span>)
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">HeadsTails</span> <span class="pl-k">extends</span> <span class="pl-e">JFrame</span>{
+
+
+    <span class="pl-k">public</span> <span class="pl-en">HeadsTails</span>() {
+        <span class="pl-c">// TODO Auto-generated constructor stub</span>
+        setLayout(<span class="pl-k">new</span> <span class="pl-smi">GridLayout</span>(<span class="pl-c1">3</span>, <span class="pl-c1">3</span>));
+
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> <span class="pl-c1">9</span>; i<span class="pl-k">++</span>)
+            add(<span class="pl-k">new</span> <span class="pl-smi">ClickableCell</span>(<span class="pl-s"><span class="pl-pds">"</span>H<span class="pl-pds">"</span></span>));
+    }
+
+    <span class="pl-k">class</span> <span class="pl-en">ClickableCell</span> <span class="pl-k">extends</span> <span class="pl-e">JLabel</span> {
+        <span class="pl-k">public</span> <span class="pl-en">ClickableCell</span>(<span class="pl-smi">String</span> <span class="pl-v">s</span>) {
+            <span class="pl-c">// TODO Auto-generated constructor stub</span>
+            setBorder(<span class="pl-k">new</span> <span class="pl-smi">LineBorder</span>(<span class="pl-smi">Color</span><span class="pl-k">.</span>black, <span class="pl-c1">1</span>));
+            setHorizontalAlignment(<span class="pl-smi">JLabel</span><span class="pl-c1"><span class="pl-k">.</span>CENTER</span>);
+            setText(s);
+
+            addMouseListener(<span class="pl-k">new</span> <span class="pl-smi">MouseAdapter</span>() {
+                <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">mouseClicked</span>(<span class="pl-smi">MouseEvent</span> <span class="pl-v">e</span>) {
+                  <span class="pl-k">if</span> (getText()<span class="pl-k">.</span>equals(<span class="pl-s"><span class="pl-pds">"</span>H<span class="pl-pds">"</span></span>)) {
+                    setText(<span class="pl-s"><span class="pl-pds">"</span>T<span class="pl-pds">"</span></span>); <span class="pl-c">// Flip from H to T</span>
+                  }
+                  <span class="pl-k">else</span> {
+                    setText(<span class="pl-s"><span class="pl-pds">"</span>H<span class="pl-pds">"</span></span>); <span class="pl-c">// Flip from T to H</span>
+                  }
+                }
+              });
+        }
+    }
+
+
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+        <span class="pl-smi">HeadsTails</span> frame <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">HeadsTails</span>();
+
+        frame<span class="pl-k">.</span>setSize(<span class="pl-c1">300</span>, <span class="pl-c1">300</span>);
+        frame<span class="pl-k">.</span>setTitle(<span class="pl-s"><span class="pl-pds">"</span>Heads Tails Demo<span class="pl-pds">"</span></span>);
+        frame<span class="pl-k">.</span>setLocationRelativeTo(<span class="pl-c1">null</span>);
+        frame<span class="pl-k">.</span>setVisible(<span class="pl-c1">true</span>);
+
+
+    }
+}</pre></div>
+
+<h2>
+<a id="user-content-lab-7" class="anchor" href="#lab-7" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lab 7</h2>
+
+<h3>
+<a id="user-content-question-1-1" class="anchor" href="#question-1-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question 1</h3>
+
+<p>Write a program to input a paragraph. Then can feed it in the program. Then perform the following using JCF:
+1. find frequency of each vowel
+2. Find and replace all occurrence of "the" with "THE".</p>
+
+<h4>
+<a id="user-content-vowelfrequencyjava" class="anchor" href="#vowelfrequencyjava" aria-hidden="true"><span class="octicon octicon-link"></span></a>VowelFrequency.java</h4>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">import</span> <span class="pl-smi">java.util.*</span>;
+<span class="pl-k">class</span> <span class="pl-en">VowelFrequency</span>
+{
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>)
+    {
+        <span class="pl-smi">Scanner</span> in <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Scanner</span>(<span class="pl-smi">System</span><span class="pl-k">.</span>in);
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>print(<span class="pl-s"><span class="pl-pds">"</span>Enter the String : <span class="pl-pds">"</span></span>);
+        <span class="pl-smi">String</span> st <span class="pl-k">=</span> in<span class="pl-k">.</span>nextLine();
+        <span class="pl-k">Map&lt;<span class="pl-smi">String</span>, <span class="pl-smi">Integer</span>&gt;</span> map <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">HashMap&lt;<span class="pl-smi">String</span>, <span class="pl-smi">Integer</span>&gt;</span>();
+
+        st<span class="pl-k">=</span>st<span class="pl-k">.</span>toLowerCase();
+
+        <span class="pl-k">for</span>(<span class="pl-k">int</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>;i<span class="pl-k">&lt;</span>st<span class="pl-k">.</span>length();i<span class="pl-k">++</span>)
+        {
+            <span class="pl-k">char</span> c <span class="pl-k">=</span> st<span class="pl-k">.</span>charAt(i);
+
+            <span class="pl-smi">String</span> ch <span class="pl-k">=</span> <span class="pl-smi">String</span><span class="pl-k">.</span>valueOf(c);
+
+            <span class="pl-smi">Integer</span> frequency <span class="pl-k">=</span> map<span class="pl-k">.</span>get(ch);
+
+            <span class="pl-smi">Integer</span> value;
+
+            <span class="pl-k">if</span> (frequency <span class="pl-k">==</span> <span class="pl-c1">null</span>) 
+                value <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Integer</span>(<span class="pl-c1">1</span>);
+            <span class="pl-k">else</span>{
+                value <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Integer</span>(frequency<span class="pl-k">.</span>intValue()<span class="pl-k">+</span><span class="pl-c1">1</span>);
+            }
+            map<span class="pl-k">.</span>put(ch, value);
+
+
+
+        }
+        <span class="pl-c">//System.out.println();</span>
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Frequency of A : <span class="pl-pds">"</span></span><span class="pl-k">+</span>map<span class="pl-k">.</span>get(<span class="pl-smi">String</span><span class="pl-k">.</span>valueOf(<span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>)));
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Frequency of E : <span class="pl-pds">"</span></span><span class="pl-k">+</span>map<span class="pl-k">.</span>get(<span class="pl-smi">String</span><span class="pl-k">.</span>valueOf(<span class="pl-s"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>)));
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Frequency of I : <span class="pl-pds">"</span></span><span class="pl-k">+</span>map<span class="pl-k">.</span>get(<span class="pl-smi">String</span><span class="pl-k">.</span>valueOf(<span class="pl-s"><span class="pl-pds">'</span>i<span class="pl-pds">'</span></span>)));
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Frequency of O : <span class="pl-pds">"</span></span><span class="pl-k">+</span>map<span class="pl-k">.</span>get(<span class="pl-smi">String</span><span class="pl-k">.</span>valueOf(<span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span>)));
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Frequency of U : <span class="pl-pds">"</span></span><span class="pl-k">+</span>map<span class="pl-k">.</span>get(<span class="pl-smi">String</span><span class="pl-k">.</span>valueOf(<span class="pl-s"><span class="pl-pds">'</span>u<span class="pl-pds">'</span></span>)));
+    }   
+}           </pre></div>
+
+<h4>
+<a id="user-content-replacethejava" class="anchor" href="#replacethejava" aria-hidden="true"><span class="octicon octicon-link"></span></a>ReplaceThe.java</h4>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">import</span> <span class="pl-smi">java.util.*</span>;
+<span class="pl-k">class</span> <span class="pl-en">ReplaceThe</span>
+{
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>)
+    {
+        <span class="pl-smi">Scanner</span> in <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Scanner</span>(<span class="pl-smi">System</span><span class="pl-k">.</span>in);
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>print(<span class="pl-s"><span class="pl-pds">"</span>Enter the String : <span class="pl-pds">"</span></span>);
+        <span class="pl-smi">String</span> input <span class="pl-k">=</span> in<span class="pl-k">.</span>nextLine();
+
+        <span class="pl-k">String</span>[] st <span class="pl-k">=</span> input<span class="pl-k">.</span>split(<span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>);
+
+        <span class="pl-k">List&lt;<span class="pl-smi">String</span>&gt;</span> list <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">ArrayList&lt;<span class="pl-smi">String</span>&gt;</span>();
+
+        <span class="pl-k">for</span>(<span class="pl-k">int</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> st<span class="pl-k">.</span>length;i<span class="pl-k">++</span>){
+            <span class="pl-k">if</span>(st[i]<span class="pl-k">.</span>compareTo(<span class="pl-s"><span class="pl-pds">"</span>the<span class="pl-pds">"</span></span>) <span class="pl-k">==</span> <span class="pl-c1">0</span>){
+                list<span class="pl-k">.</span>add(st[i]<span class="pl-k">.</span>toUpperCase());
+            }
+            <span class="pl-k">else</span>{
+                list<span class="pl-k">.</span>add(st[i]);
+            }
+        }
+
+        <span class="pl-smi">String</span> listString <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>;
+
+        <span class="pl-k">for</span> (<span class="pl-smi">String</span> s <span class="pl-k">:</span> list)
+        {
+            listString <span class="pl-k">+=</span> s <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>;
+        }
+
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(listString);
+    }   
+}</pre></div>
+
+<h3>
+<a id="user-content-question-2-1" class="anchor" href="#question-2-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question 2</h3>
+
+<p>Write a program to evaluate an infix expression (input and output using JOptionpane) using JCF. Use only JCF interfaces and methods for all stack operations needed to solve the problem.</p>
+
+<h3>
+<a id="user-content-todo-1" class="anchor" href="#todo-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Todo</h3>
 </article></body></html>
