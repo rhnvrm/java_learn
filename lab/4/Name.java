@@ -52,9 +52,9 @@ public class Name{
 		return s;
 	}
 
-	public int sameName(Name x){
-		if(this.getName().toLowerCase().compareTo(x.getName().toLowerCase()) == 0) return 1;
-		else return 0;
+	public boolean sameName(Name x){
+		if(this.getName().toLowerCase().compareTo(x.getName().toLowerCase()) == 0) return true;
+		else return false;
 	}
 
 	public boolean similarName(Name x){

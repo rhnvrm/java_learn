@@ -3,7 +3,7 @@ package SNU.geometryUtil;
 public class Circle{
 	private double radius;
 
-	private static int counter;
+	private static int counter = 0;
 
 	public Circle(){
 		counter++;
@@ -14,7 +14,7 @@ public class Circle{
 		counter++;
 	}
 
-	public int getCounter(){
+	public static int getCounter(){
 		return counter;
 	}
 

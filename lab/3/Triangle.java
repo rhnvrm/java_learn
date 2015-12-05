@@ -4,16 +4,22 @@ package SNU.geometryUtil;
 public class Triangle{
 	private double a,b,c;
 
-	private static int counter;
+	private static int counter = 0;
 
 	public Triangle(){
 		counter++;
 	}
 
-	public int getCounter(){
+	public static int getCounter(){
 		return counter;
 	}
 
+	public Triangle(double x,double y,double z){
+		a = x;
+		b = y;
+		c = z;
+		counter++;
+	}
 
 	public double getA(){
 		return a;

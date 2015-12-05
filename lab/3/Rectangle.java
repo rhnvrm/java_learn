@@ -4,7 +4,7 @@ package SNU.geometryUtil;
 public class Rectangle{
 	private double l,b;
 	
-	private static int counter;
+	private static int counter = 0;
 
 	public Rectangle(){
 		counter++;
@@ -16,7 +16,7 @@ public class Rectangle{
 		counter++;
 	}
 
-	public int getCounter(){
+	public static int getCounter(){
 		return counter;
 	}
 
@@ -36,7 +36,7 @@ public class Rectangle{
 
 
 	public double getPerimeter(){
-		return 2*(l+b);
+		return 2.0*(l+b);
 	}
 
 	public double getArea(){
